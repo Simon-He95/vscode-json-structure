@@ -17,12 +17,11 @@ export function getStack(content: string, position: vscode.Position) {
   const stack: [string, string][] = findTarget(children, position)
   return stack.reduce((result: string, [name, val], i) => {
     if (val === 'Array')
-      result += 'children['
+      result += `${name}[`
     else if (val === 'Object')
       result += `${name}${result.slice(-1)[0] === '[' ? ']' : ''}${i !== stack.length - 1 ? '.' : ''}`
     else
       result += name
-
     return result
   }, '')
 }
