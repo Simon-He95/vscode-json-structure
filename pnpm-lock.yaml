@@ -10,6 +10,9 @@ devDependencies:
   '@types/vscode':
     specifier: ^1.77.0
     version: 1.77.0
+  '@vscode-use/utils':
+    specifier: ^0.0.25
+    version: 0.0.25
   bumpp:
     specifier: ^9.1.0
     version: 9.1.0
@@ -19,6 +22,9 @@ devDependencies:
   esno:
     specifier: ^0.16.3
     version: 0.16.3
+  json-to-ast:
+    specifier: ^2.1.0
+    version: 2.1.0
   pnpm:
     specifier: ^8.1.1
     version: 8.1.1
@@ -677,6 +683,11 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
+  /@vscode-use/utils@0.0.25:
+    resolution: {integrity: sha512-DPdnXg51S0LIcfBPJ+cQk3lnlhsLaUb8ccxIeDQF5mLRtB+K/td5rN6TluCwV0sOi6nNWLzRnRwcNgZvdNL0dA==}
+    engines: {vscode: ^1.77.0}
+    dev: true
+
   /acorn-jsx@5.3.2(acorn@8.8.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -1093,6 +1104,11 @@ packages:
     dependencies:
       slice-ansi: 5.0.0
       string-width: 5.1.2
+    dev: true
+
+  /code-error-fragment@0.0.230:
+    resolution: {integrity: sha512-cadkfKp6932H8UkhzE/gcUqhRMNf8jHzkAN7+5Myabswaghu4xABTgPHDCjW+dBAJxj/SpkTYokpzDqY4pCzQw==}
+    engines: {node: '>= 4'}
     dev: true
 
   /code-point-at@1.1.0:
@@ -2742,6 +2758,14 @@ packages:
 
   /json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
+    dev: true
+
+  /json-to-ast@2.1.0:
+    resolution: {integrity: sha512-W9Lq347r8tA1DfMvAGn9QNcgYm4Wm7Yc+k8e6vezpMnRT+NHbtlxgNBXRVjXe9YM6eTn6+p/MKOlV/aABJcSnQ==}
+    engines: {node: '>= 4'}
+    dependencies:
+      code-error-fragment: 0.0.230
+      grapheme-splitter: 1.0.4
     dev: true
 
   /json5@1.0.1:
