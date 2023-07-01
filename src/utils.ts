@@ -19,7 +19,7 @@ export function getStack(content: string, position: vscode.Position) {
     if (val === 'Array')
       result += 'children['
     else if (val === 'Object')
-      result += `${name}]${i !== stack.length - 1 ? '.' : ''}`
+      result += `${name}${result.slice(-1)[0] === '[' ? ']' : ''}${i !== stack.length - 1 ? '.' : ''}`
     else
       result += name
 
@@ -28,7 +28,7 @@ export function getStack(content: string, position: vscode.Position) {
 }
 
 function findTarget(children: any, position: any, stack: any = []) {
-  const { line } = position
+  const line = position.line + 1
   let i = -1
   for (const child of children) {
     i++
