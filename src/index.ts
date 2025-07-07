@@ -1,19 +1,30 @@
-import * as vscode from 'vscode'
+import { createExtension, createHover, createMarkdownString, message, registerCommand, registerHoverProvider, setCopyText } from '@vscode-use/utils'
 import { getStack } from './utils'
 
-export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(vscode.languages.registerHoverProvider(['json'], {
-    provideHover(document, position) {
+export const { activate } = createExtension(() => {
+  registerCommand('vscode-json-structure.copyJsonPath', (text: string) => {
+    setCopyText(text)
+    message.info('JSON path copied to clipboard!')
+  })
+
+  registerHoverProvider(['json'],
+    (document, position) => {
       // 获取当前选中的文本范围
       const content = document.getText()
       const result = getStack(content, position) ?? ''
-      const md = new vscode.MarkdownString()
+      if (!result)
+        return
+
+      const md = createMarkdownString()
       md.appendCodeblock(result, 'js')
-      return new vscode.Hover(md)
-    },
-  }))
-}
 
-export function deactivate() {
+      // 添加复制按钮
+      const copyButton = `[Copy](command:vscode-json-structure.copyJsonPath?${encodeURIComponent(JSON.stringify(result))})`
+      md.appendMarkdown(`\n\n${copyButton}`)
 
-}
+      // 启用命令链接
+      md.isTrusted = true
+
+      return createHover(md)
+    })
+})

@@ -1,5 +1,6 @@
 import type * as vscode from 'vscode'
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const parse = require('json-to-ast')
 
 export function getStack(content: string, position: vscode.Position) {
