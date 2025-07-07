@@ -2,7 +2,7 @@
   "publisher": "simonhe",
   "name": "vscode-json-structure",
   "displayName": "vscode-json-structure",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@8.15.9",
   "description": "vscode-json-structure",
   "author": "Simon He <https://github.com/Simon-He95>",
