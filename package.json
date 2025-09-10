@@ -28,7 +28,7 @@
     "dist"
   ],
   "engines": {
-    "vscode": "^1.101.0"
+    "vscode": "^1.103.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -53,18 +53,16 @@
     "release": "bumpp && pnpm run publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.6",
-    "@types/node": "^18.19.115",
-    "@types/vscode": "^1.101.0",
+    "@antfu/eslint-config": "^5.3.0",
+    "@types/node": "^18.19.124",
+    "@types/vscode": "^1.103.0",
     "@vscode-use/utils": "^0.1.59",
+    "@vscode/vsce": "^3.6.0",
     "bumpp": "^9.11.1",
-    "eslint": "^8.57.1",
-    "esno": "^0.16.3",
+    "eslint": "^9.35.0",
     "json-to-ast": "^2.1.0",
-    "tsup": "^6.7.0",
-    "typescript": "^5.8.3",
-    "vite": "^4.5.14",
-    "vitest": "^0.29.8",
-    "vsce": "^2.15.0"
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }

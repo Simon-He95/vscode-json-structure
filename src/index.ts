@@ -7,24 +7,23 @@ export const { activate } = createExtension(() => {
     message.info('JSON path copied to clipboard!')
   })
 
-  registerHoverProvider(['json'],
-    (document, position) => {
-      // 获取当前选中的文本范围
-      const content = document.getText()
-      const result = getStack(content, position) ?? ''
-      if (!result)
-        return
+  registerHoverProvider(['json'], (document, position) => {
+    // 获取当前选中的文本范围
+    const content = document.getText()
+    const result = getStack(content, position) ?? ''
+    if (!result)
+      return
 
-      const md = createMarkdownString()
-      md.appendCodeblock(result, 'js')
+    const md = createMarkdownString()
+    md.appendCodeblock(result, 'js')
 
-      // 添加复制按钮
-      const copyButton = `[Copy](command:vscode-json-structure.copyJsonPath?${encodeURIComponent(JSON.stringify(result))})`
-      md.appendMarkdown(`\n\n${copyButton}`)
+    // 添加复制按钮
+    const copyButton = `[Copy](command:vscode-json-structure.copyJsonPath?${encodeURIComponent(JSON.stringify(result))})`
+    md.appendMarkdown(`\n\n${copyButton}`)
 
-      // 启用命令链接
-      md.isTrusted = true
+    // 启用命令链接
+    md.isTrusted = true
 
-      return createHover(md)
-    })
+    return createHover(md)
+  })
 })
